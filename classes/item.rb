@@ -1,3 +1,5 @@
+require 'date'
+
 class Item
   attr_accessor :publish_date, :archived
   attr_reader :id, :genre, :label, :author, :source
@@ -23,6 +25,7 @@ class Item
 
   def author=(author)
     @author = author
+    author.items << self unless author.items.include?(self)
   end
 
   def source=(source)
@@ -37,8 +40,10 @@ class Item
 
   private
 
-  def can_be_archived?()
-    return true if @publish_date > 10
+  def can_be_archived?
+    current_year = Date.today.year
+    publish_year = @publish_date.year
+    return true if current_year - publish_year > 10
 
     false
   end

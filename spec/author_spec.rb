@@ -1,10 +1,10 @@
-require_relative '../classes/game/author'
+require_relative '../classes/game_author/author'
 require_relative '../classes/item'
 
 describe Author do
   context 'I create the author object and test it' do
     let(:author) { Author.new('Alishah', 'Safdari') }
-    let(:item) { Item.new(12) }
+    let(:item) { Item.new('2022-12-31') }
     it 'Author first_name must be Alishah' do
       expect(author.first_name).to eq('Alishah')
     end
@@ -29,6 +29,9 @@ describe Author do
     it 'adds an item to the author' do
       author.add_item(item)
       expect(author.items).to include(item)
+    end
+    it 'check date' do
+      expect(item.publish_date).to eq('2022-12-31')
     end
   end
 end
