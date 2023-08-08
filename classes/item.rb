@@ -17,10 +17,12 @@ class Item
     @genre = genre
   end
 
+# rubocop:enable all
   def label=(label)
     @label = label
+    label.items << self unless label.items.include?(self)
   end
-
+# rubocop:disable all
   def author=(author)
     @author = author
   end
