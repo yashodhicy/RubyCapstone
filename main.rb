@@ -1,4 +1,4 @@
-require_relative 'item'
+require_relative 'classes/item'
 
 def create_item
   print 'Enter publish year: '

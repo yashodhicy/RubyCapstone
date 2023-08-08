@@ -1,6 +1,6 @@
 class Item
   attr_accessor :publish_date, :archived
-  attr_reader :id, :genre, :label, :author, :source  
+  attr_reader :id, :genre, :label, :author, :source
 
   def initialize(publish_date, archived: false)
     @id = Random.rand(1...1000)
@@ -8,9 +8,11 @@ class Item
     @archived = archived
   end
 
-#   these methods will give linter errors but when 
-#   we implement other classes and relationship 
+#   these methods will give linter errors but when
+#   we implement other classes and relationship
 #   it will be okay.
+
+# rubocop:disable all
   def genre=(genre)
     @genre = genre
   end
@@ -26,6 +28,8 @@ class Item
   def source=(source)
     @source = source
   end
+  
+# rubocop:enable all
 
   def move_to_archive()
     @archived = true if can_be_archived?
@@ -35,7 +39,7 @@ class Item
 
   def can_be_archived?()
     return true if @publish_date > 10
-    return false
+
+    false
   end
-  
 end
