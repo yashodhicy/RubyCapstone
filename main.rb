@@ -1,89 +1,49 @@
-require_relative 'classes/item'
+require_relative 'classes/app'
 
-def create_item
-  print 'Enter publish year: '
-  year = gets.chomp.to_i
-  print 'Enter publish month: '
-  month = gets.chomp.to_i
-  print 'Enter publish day: '
-  day = gets.chomp.to_i
-  publish_date = Time.new(year, month, day)
-
-  Item.new(publish_date)
+def choose_option
+  'please choose an option by entering a number
+  1 - List all books
+  2 - List all music albums
+  3 - List of games
+  4 - List all genres
+  5 - List all labels
+  6 - List all authors
+  7 - Add a book
+  8 - Add a music album
+  9 - Add a game
+  10 - Exit'
 end
 
-def move_item_to_archive(items)
-  puts 'Select an item to move to the archive:'
-  list_items(items)
-  print 'Enter item number: '
-  item_number = gets.chomp.to_i - 1
-
-  if valid_item_number?(item_number, items)
-    item = items[item_number]
-    move_to_archive(item)
-    puts "Item #{item.id} moved to the archive."
-  else
-    puts 'Invalid item number.'
+def choose_list(number, app)
+  case number
+  when 1 then app.book_list
+  when 2 then app.music_list
+  when 3 then app.game_list
+  when 4 then app.genres_list
+  when 5 then app.lables_list
+  when 6 then app.author_list
   end
 end
 
-def list_items(items)
-  items.each_with_index { |it, index| puts "#{index + 1}. Item #{it.id}" }
-end
-
-def valid_item_number?(item_number, items)
-  item_number >= 0 && item_number < items.length
-end
-
-def display_item_details(item)
-  puts "Item #{item.id} (Archived: #{item.archived})"
-end
-
-def display_menu
-  puts 'Options:'
-  puts '1. Create Item'
-  puts '2. Move Item to Archive'
-  puts '3. List Items'
-  puts '4. Quit'
-end
-
-def exit_program
-  puts 'Goodbye!'
-  exit
-end
-
-def invalid_choice
-  puts 'Invalid choice. Please select a valid option.'
-end
-
-def process_choice(choice, items)
-  case choice
-  when 1
-    create_and_add_item(items)
-  when 2
-    move_item_to_archive(items)
-  when 3
-    list_items(items)
-  when 4
-    exit_program
-  else
-    invalid_choice
+def choose_num(number, app)
+  case number
+  when 1..6 then choose_list(number, app)
+  when 7 then app.add_book
+  when 8 then app.add_music
+  when 9 then app.add_game
+  else puts 'Thank you for using this app'
   end
-end
-
-def create_and_add_item(items)
-  item = create_item
-  items << item
-  puts "Item with ID #{item.id} created."
 end
 
 def main
-  items = []
+  app = App.new
 
   loop do
-    display_menu
-    choice = gets.chomp.to_i
-    process_choice(choice, items)
+    puts choose_option
+    number = gets.chomp.to_i
+    break if number == 10
+
+    choose_num(number, app)
     puts "\n"
   end
 end
