@@ -7,7 +7,7 @@ class InputClass
     elsif multipayer.downcase == 'n'
       false
     else
-      puts 'you added the incorrect word'
+      return puts 'you added the incorrect value'
     end
   end
 
@@ -30,5 +30,26 @@ class InputClass
   def input_last_name
     print 'LastName : '
     gets.chomp
+  end
+
+  def publisher
+    print 'Enter publisher name here...'
+    publisher = gets.chomp
+  end
+
+  def cover_state
+    print 'Enter cover_state here...(example: bad or good)'
+    cover_state = gets.chomp
+  end
+
+  def publish_date
+    print 'Enter publish year: '
+    year = gets.chomp.to_i
+    print 'Enter publish month: '
+    month = gets.chomp.to_i
+    print 'Enter publish day: '
+    day = gets.chomp.to_i
+
+    date = Date.new(year, month, day)
   end
 end

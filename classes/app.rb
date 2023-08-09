@@ -2,17 +2,48 @@ require 'json'
 require_relative 'game_author/game'
 require_relative 'game_author/author'
 require_relative 'input_class'
+require_relative 'book/book'
+require_relative 'book/label'
 
 class App
   def initialize
     @games = []
     @authors = []
+    @books = []
+    @labels = []
     @input_data = InputClass.new
   end
 
+
+  def add_book
+    book = Book.new(@input_data.publisher, @input_data.cover_state, @input_data.publish_date)
+    data = read_file('json/books.json')
+    @books = data
+    @books << book
+    write_file('json/books.json', @books)
+    puts "Add a book successfully"
+  end
+
+  def book_list
+    data = read_file('json/books.json')
+    return puts "there are no books.Let's add a book" if data.empty?
+    data.each do |book|
+      puts "publisher: #{book[:publisher]}, cover_state: #{book[:cover_state]}, published date: #{book[:publish_date]}"
+    end
+  end
+
+  def lables_list
+    data = read_file('json/labels.json')
+    return puts "there are no labels." if data.empty?
+    data.each do |label|
+      puts "title: #{label[:title]}, color: #{label[:color]}"
+    end
+  end
+
+
   def add_game
     multiplayer = @input_data.input_multiplayer
-    return if multiplayer != true || multiplayer != false
+    return if multiplayer != true && multiplayer != false
 
     last_played_at = @input_data.input_last_played_at
     publish_date = @input_data.input_publish_date
@@ -62,7 +93,7 @@ class App
     puts ''
   end
 
-  # writhe file methode
+  # write file method
   def write_file(file, content)
     data = content.map(&:to_hash)
     json = JSON.pretty_generate(data)
