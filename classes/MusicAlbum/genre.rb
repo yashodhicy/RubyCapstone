@@ -1,5 +1,5 @@
 class Genre
-  attr_reader :id, :name, :items
+  attr_accessor :id, :name, :items
 
   def initialize(name)
     @id = generate_id
@@ -8,7 +8,7 @@ class Genre
   end
 
   def add_item(item)
-    @items << item
+    @items << item unless @items.include?(item)
     item.genre = self
   end
 
