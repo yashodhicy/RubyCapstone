@@ -1,4 +1,4 @@
-require_relative '/game/item'
+require_relative '../item'
 
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
@@ -12,7 +12,9 @@ class Game < Item
   private
 
   def can_be_archived?()
-    return true if super && last_played_at > 2
+    current_year = Date.today.year
+    last_played_at_year = @last_played_at.year
+    return true if current_year - last_played_at_year > 10
 
     false
   end
