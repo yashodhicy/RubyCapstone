@@ -7,7 +7,7 @@ class InputClass
     elsif multipayer.downcase == 'n'
       false
     else
-      return puts 'you added the incorrect value'
+      puts 'you added the incorrect value'
     end
   end
 
@@ -34,12 +34,12 @@ class InputClass
 
   def publisher
     print 'Enter publisher name here...'
-    publisher = gets.chomp
+    gets.chomp
   end
 
   def cover_state
     print 'Enter cover_state here...(example: bad or good)'
-    cover_state = gets.chomp
+    gets.chomp
   end
 
   def publish_date
@@ -50,6 +50,6 @@ class InputClass
     print 'Enter publish day: '
     day = gets.chomp.to_i
 
-    date = Date.new(year, month, day)
+    Date.new(year, month, day)
   end
 end

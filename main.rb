@@ -31,7 +31,7 @@ def choose_num(number, app)
   when 7 then app.add_book
   when 8 then app.add_music
   when 9 then app.add_game
-  else 
+  else
     puts 'Thank you for using this app'
   end
 end

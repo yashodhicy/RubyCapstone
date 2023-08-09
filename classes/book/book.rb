@@ -9,7 +9,7 @@ class Book < Item
   end
 
   def to_hash
-    { 
+    {
       id: @id,
       publisher: @publisher,
       cover_state: @cover_state,

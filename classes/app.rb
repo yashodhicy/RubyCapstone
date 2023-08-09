@@ -14,19 +14,19 @@ class App
     @input_data = InputClass.new
   end
 
-
   def add_book
     book = Book.new(@input_data.publisher, @input_data.cover_state, @input_data.publish_date)
     data = read_file('json/books.json')
     @books = data
     @books << book
     write_file('json/books.json', @books)
-    puts "Add a book successfully"
+    puts 'Add a book successfully'
   end
 
   def book_list
     data = read_file('json/books.json')
     return puts "there are no books.Let's add a book" if data.empty?
+
     data.each do |book|
       puts "publisher: #{book[:publisher]}, cover_state: #{book[:cover_state]}, published date: #{book[:publish_date]}"
     end
@@ -34,12 +34,12 @@ class App
 
   def lables_list
     data = read_file('json/labels.json')
-    return puts "there are no labels." if data.empty?
+    return puts 'there are no labels.' if data.empty?
+
     data.each do |label|
       puts "title: #{label[:title]}, color: #{label[:color]}"
     end
   end
-
 
   def add_game
     multiplayer = @input_data.input_multiplayer
