@@ -1,4 +1,4 @@
-require_relative 'item'
+require_relative '../item'
 class Book < Item
   attr_accessor :publisher, :cover_state
 
@@ -6,6 +6,15 @@ class Book < Item
     super(publish_date)
     @publisher = publisher
     @cover_state = cover_state
+  end
+
+  def to_hash
+    { 
+      id: @id,
+      publisher: @publisher,
+      cover_state: @cover_state,
+      publish_date: @publish_date
+    }
   end
 
   private

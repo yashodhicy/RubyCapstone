@@ -1,4 +1,4 @@
-require_relative '../classes/book'
+require_relative '../classes/book/book'
 require 'date'
 
 describe Book do
