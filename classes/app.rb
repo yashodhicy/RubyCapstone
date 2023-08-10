@@ -5,56 +5,6 @@ require_relative 'input_class'
 require_relative 'game_author/game'
 require_relative 'game_author/author'
 
-class App
-  def initialize
-    @games = load_data('json/games.json')
-    @authors = load_data('json/authors.json')
-    @albums = load_data('json/albums.json')
-    @genres = [Genre.new('Comedy'), Genre.new('Thriller')]
-    @input_data = InputClass.new
-  end
-
-  def main_menu
-    loop do
-      puts 'Options:'
-      puts '1. Add a Game'
-      puts '2. List All Games'
-      puts '3. Add an Author'
-      puts '4. List All Authors'
-      puts '5. Add a Music Album'
-      puts '6. List All Music Albums'
-      puts '7. List All Genres'
-      puts '8. Exit'
-      choice = gets.chomp.to_i
-
-      case choice
-      when 1
-        add_game
-      when 2
-        game_list
-      when 3
-        add_author
-      when 4
-        author_list
-      when 5
-        add_album
-      when 6
-        list_albums
-      when 7
-        list_genres
-      when 8
-        puts 'Goodbye!'
-        break
-      else
-        puts 'Invalid choice.'
-      end
-    end
-  end
-
-  def add_game
-    multiplayer = @input_data.input_multiplayer
-    return if multiplayer.nil?
-
     last_played_at = @input_data.input_last_played_at
     publish_date = @input_data.input_publish_date
 
@@ -132,12 +82,6 @@ class App
     end
   end
 
-
-  private
-
-  def write_file(file_name, content)
-    json = JSON.pretty_generate(content)
-    File.write(file_name, json)
   end
 
   def load_data(file_name)
