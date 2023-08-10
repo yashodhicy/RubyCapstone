@@ -4,9 +4,15 @@ require_relative 'game_author/author'
 require_relative 'input_class'
 require_relative 'book/book'
 require_relative 'book/label'
+require_relative 'MusicAlbum/genre_operation'
+require_relative 'MusicAlbum/music_operations'
 
 class App
+  attr_accessor :music_album_operations, :genre_operations
+
   def initialize
+    @music_album_operations = MusicAlbumOperations.new
+    @genre_operations = GenreOperations.new
     @games = []
     @authors = []
     @books = []
