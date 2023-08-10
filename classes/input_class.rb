@@ -31,3 +31,4 @@ class InputClass
     print 'LastName : '
     gets.chomp
   end
+end
