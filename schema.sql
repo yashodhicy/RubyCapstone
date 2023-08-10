@@ -1,3 +1,5 @@
+CREATE DATABASE my_catalog;
+
 CREATE TABLE label (
     id  INT GENERATED ALWAYS AS IDENTITY,
     title VARCHAR(100),
@@ -10,25 +12,4 @@ CREATE TABLE item (
   publish_date DATE NOT NULL,
   archived BOOLEAN DEFAULT false,
   label_id INT,
-  genre_id INT,
-  FOREIGN KEY (label_id) REFERENCES labels(id),
-  FOREIGN KEY (genre_id) REFERENCES genres(id)
-);
-
-CREATE TABLE book (
-  id INT PRIMARY KEY REFERENCES items(id),
-  publisher VARCHAR(255) NOT NULL,
-  cover_state VARCHAR(50) NOT NULL
-);
-
-CREATE TABLE music_albums (
-    id SERIAL PRIMARY KEY,
-    item_id INT NOT NULL,
-    on_spotify BOOLEAN NOT NULL
-    FOREIGN KEY (item_id) REFERENCES items(id)
-);
-
-CREATE TABLE genres (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
-);
+  
