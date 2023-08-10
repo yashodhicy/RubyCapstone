@@ -1,6 +1,8 @@
-require_relative '../classes/label'
-require_relative '../classes/book'
-describe 'label' do
+require_relative '../classes/book/label'
+require_relative '../classes/book/book'
+require_relative '../classes/item'
+
+describe 'Label' do
   context 'Testing label class' do
     book = Book.new('John', 'good', Date.parse('2023-08-08'))
     label = Label.new('Book-label', 'Red')
