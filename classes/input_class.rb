@@ -31,4 +31,32 @@ class InputClass
     print 'LastName : '
     gets.chomp
   end
+
+  def input_year
+    print 'Enter album publish year: '
+    gets.chomp.to_i
+  end
+
+  def input_month
+    print 'Enter album publish month: '
+    gets.chomp.to_i
+  end
+
+  def input_day
+    print 'Enter album publish day: '
+    gets.chomp.to_i
+  end
+
+  def input_on_spotify
+    print 'Available on Spotify? (y or n): '
+    answer = gets.chomp
+    if answer.downcase == 'y'
+      true
+    elsif answer.downcase == 'n'
+      false
+    else
+      puts 'Invalid choice. Please enter y or n.'
+      input_on_spotify
+    end
+  end
 end

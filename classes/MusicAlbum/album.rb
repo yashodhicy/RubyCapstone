@@ -8,6 +8,15 @@ class MusicAlbum < Item
     @on_spotify = on_spotify
   end
 
+  def to_hash
+    {
+      id: @id,
+      publish_date: @publish_date,
+      archived: @archived,
+      on_spotify: @on_spotify
+    }
+  end
+
   private
 
   def can_be_archived?
