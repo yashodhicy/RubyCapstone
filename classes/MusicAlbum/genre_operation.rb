@@ -9,12 +9,11 @@ class GenreOperations
   end
 
   def list
-    if @genres.empty?
-      puts 'The list is empty'
-    else
-      @genres.each do |genre|
-        puts "Genre id: #{genre.id}, Name: #{genre.name}"
-      end
+    load_json
+    return puts 'The list is empty' if @genres.empty?
+
+    @genres.each do |genre|
+      puts "Genre id: #{genre.id}, Name: #{genre.name}"
     end
   end
 
@@ -26,15 +25,14 @@ class GenreOperations
       }
     end
 
-    File.write('genres.json', JSON.pretty_generate(genres_json))
-
+    File.write('json/genres.json', JSON.pretty_generate(genres_json))
     puts 'Genres saved successfully.'
   end
 
   def load_json
-    return unless File.exist?('genres.json')
+    return unless File.exist?('json/genres.json')
 
-    file_content = File.read('genres.json')
+    file_content = File.read('json/genres.json')
     genres_json = JSON.parse(file_content)
     genres_json.each do |genre_json|
       genre = Genre.new(genre_json['name'])
@@ -68,6 +66,7 @@ class GenreOperations
     genre = Genre.new(name)
     @genres << genre
     puts "Genre '#{name}' added successfully."
+    save_json
     genre
   end
 end

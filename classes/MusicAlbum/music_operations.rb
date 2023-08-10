@@ -11,6 +11,7 @@ class MusicAlbumOperations
   end
 
   def list
+    load_json
     if @albums.empty?
       puts 'The list is empty.'
     else
@@ -27,6 +28,7 @@ class MusicAlbumOperations
     album.move_to_archive
     @albums << album
     genre&.add_item(album)
+    save_json
     album
   end
 
@@ -35,21 +37,21 @@ class MusicAlbumOperations
       {
         id: album.id,
         genre: album.genre.name,
-        published_date: album.published_date.to_s,
+        published_date: album.publish_date.to_s,
         on_spotify: album.on_spotify,
         archived: album.archived
       }
     end
 
-    File.write('music_album.json', JSON.pretty_generate(albums_json))
+    File.write('json/music_album.json', JSON.pretty_generate(albums_json))
 
     puts 'Albums saved successfully.'
   end
 
   def load_json
-    return unless File.exist?('music_album.json')
+    return unless File.exist?('json/music_album.json')
 
-    file_content = File.read('music_album.json')
+    file_content = File.read('json/music_album.json')
     albums_json = JSON.parse(file_content)
     albums_json.each do |album_json|
       genre_obj = Genre.new(album_json['genre'])
@@ -73,6 +75,8 @@ class MusicAlbumOperations
     album = create(published_date, on_spotify, genre)
     print_album_details(album, genre)
   end
+
+  private # Making these methods private as they are more of helper methods.
 
   def ask_for_published_date
     date = nil

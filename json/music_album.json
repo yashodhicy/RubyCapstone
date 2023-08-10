@@ -1,0 +1,51 @@
+[
+  {
+    "id": 8,
+    "genre": "shery",
+    "published_date": "2022-12-12",
+    "on_spotify": true,
+    "archived": false
+  },
+  {
+    "id": 857,
+    "genre": "shaina",
+    "published_date": "2022-12-23",
+    "on_spotify": true,
+    "archived": false
+  },
+  {
+    "id": 8,
+    "genre": "shery",
+    "published_date": "2022-12-12",
+    "on_spotify": true,
+    "archived": false
+  },
+  {
+    "id": 857,
+    "genre": "shaina",
+    "published_date": "2022-12-23",
+    "on_spotify": true,
+    "archived": false
+  },
+  {
+    "id": 8,
+    "genre": "shery",
+    "published_date": "2022-12-12",
+    "on_spotify": true,
+    "archived": false
+  },
+  {
+    "id": 857,
+    "genre": "shaina",
+    "published_date": "2022-12-23",
+    "on_spotify": true,
+    "archived": false
+  },
+  {
+    "id": 772,
+    "genre": "shaina",
+    "published_date": "2022-12-23",
+    "on_spotify": true,
+    "archived": false
+  }
+]
