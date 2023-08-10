@@ -12,7 +12,6 @@ add_author
 
 @games.push({ multiplayer:, last_played_at:, publish_date: })
 
-
 write_file('json/games.json', @games)
 puts 'game created successfully'
 
