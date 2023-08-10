@@ -17,9 +17,9 @@ end
 def choose_list(number, app)
   case number
   when 1 then app.book_list
-  when 2 then app.music_list
+  when 2 then app.music_album_operations.list
   when 3 then app.game_list
-  when 4 then app.genres_list
+  when 4 then app.genre_operations.list
   when 5 then app.lables_list
   when 6 then app.author_list
   end
@@ -29,7 +29,7 @@ def choose_num(number, app)
   case number
   when 1..6 then choose_list(number, app)
   when 7 then app.add_book
-  when 8 then app.add_music
+  when 8 then app.music_album_operations.add_album(app.genre_operations)
   when 9 then app.add_game
   else
     puts 'Thank you for using this app'

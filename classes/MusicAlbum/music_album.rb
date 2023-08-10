@@ -1,16 +1,16 @@
-require_relative '/MusicAlbum/item'
+require_relative '../item'
 
 class MusicAlbum < Item
   attr_accessor :on_spotify
 
-  def initialize(publish_date, on_spotify: false)
-    super(publish_date)
+  def initialize(published_date = nil, on_spotify: false, archived: false)
+    super(published_date, archived: archived)
     @on_spotify = on_spotify
   end
 
-  private
-
   def can_be_archived?
-    super && @on_spotify
+    return false unless publish_date && publish_date < (Date.today.prev_year(10))
+
+    @on_spotify
   end
 end
