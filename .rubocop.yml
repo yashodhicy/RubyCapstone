@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 3.2.2
   NewCops: enable
   Exclude:
     - "Guardfile"
@@ -10,7 +11,7 @@ Layout/LineLength:
   Max: 120
 
 Metrics/MethodLength:
-  Max: 40   # Updated from 20 to 40
+  Max: 40
 
 Metrics/AbcSize:
   Max: 50
@@ -20,7 +21,10 @@ Metrics/ClassLength:
 
 Metrics/BlockLength:
   IgnoredMethods: ['describe']
-  Max: 40   # Updated from 30 to 40
+  Max: 40
+
+Metrics/CyclomaticComplexity:
+  Max: 10
 
 Style/Documentation:
   Enabled: false

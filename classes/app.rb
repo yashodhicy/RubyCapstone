@@ -60,7 +60,7 @@ class App
 
     add_author
 
-    @games.push({ multiplayer: multiplayer, last_played_at: last_played_at, publish_date: publish_date })
+    @games.push({ multiplayer:, last_played_at:, publish_date: })
 
     write_file('json/games.json', @games)
     puts 'game created successfully'
@@ -78,7 +78,7 @@ class App
       @authors.push(existing_authors)
     end
 
-    @authors.push({ first_name: first_name, last_name: last_name })
+    @authors.push({ first_name:, last_name: })
 
     write_file('json/authors.json', @authors)
     puts 'Author added!'
@@ -90,7 +90,7 @@ class App
     day = @input_data.input_day
     on_spotify = @input_data.input_on_spotify
 
-    album = MusicAlbum.new(Time.new(year, month, day), on_spotify: on_spotify)
+    album = MusicAlbum.new(Time.new(year, month, day), on_spotify:)
     @albums << album.to_hash
 
     puts 'Album added!'
