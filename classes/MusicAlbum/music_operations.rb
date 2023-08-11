@@ -43,13 +43,17 @@ class MusicAlbumOperations
       }
     end
 
-    File.write('json/music_album.json', JSON.pretty_generate(albums_json))
+    File.open('json/music_album.json', 'w') do |file|
+      file.puts(JSON.pretty_generate(albums_json))
+    end
 
     puts 'Albums saved successfully.'
   end
 
   def load_json
     return unless File.exist?('json/music_album.json')
+
+    @albums = []
 
     file_content = File.read('json/music_album.json')
     albums_json = JSON.parse(file_content)

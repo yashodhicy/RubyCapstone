@@ -1,49 +1,28 @@
 [
   {
-    "id": 8,
-    "genre": "shery",
-    "published_date": "2022-12-12",
-    "on_spotify": true,
-    "archived": false
-  },
-  {
-    "id": 857,
-    "genre": "shaina",
+    "id": 237,
+    "genre": "Mahnoor",
     "published_date": "2022-12-23",
     "on_spotify": true,
     "archived": false
   },
   {
-    "id": 8,
-    "genre": "shery",
-    "published_date": "2022-12-12",
+    "id": 625,
+    "genre": "Chand",
+    "published_date": "2023-09-12",
+    "on_spotify": false,
+    "archived": false
+  },
+  {
+    "id": 298,
+    "genre": "Chand",
+    "published_date": "2022-07-25",
     "on_spotify": true,
     "archived": false
   },
   {
-    "id": 857,
-    "genre": "shaina",
-    "published_date": "2022-12-23",
-    "on_spotify": true,
-    "archived": false
-  },
-  {
-    "id": 8,
-    "genre": "shery",
-    "published_date": "2022-12-12",
-    "on_spotify": true,
-    "archived": false
-  },
-  {
-    "id": 857,
-    "genre": "shaina",
-    "published_date": "2022-12-23",
-    "on_spotify": true,
-    "archived": false
-  },
-  {
-    "id": 772,
-    "genre": "shaina",
+    "id": 333,
+    "genre": "Jackson",
     "published_date": "2022-12-23",
     "on_spotify": true,
     "archived": false
