@@ -22,11 +22,46 @@ class App
 
   def add_book
     book = Book.new(@input_data.publisher, @input_data.cover_state, @input_data.publish_date)
+    label = choose_label
+    label&.add_item(book)
     data = read_file('json/books.json')
     @books = data
     @books << book
     write_file('json/books.json', @books)
     puts 'Add a book successfully'
+  end
+
+  def add_label
+    label = Label.new(@input_data.title, @input_data.color)
+    data = read_file('json/labels.json')
+    @labels = data
+    @labels << label
+    write_file('json/labels.json', @labels)
+    puts 'Add a label successfully'
+    label
+  end
+
+  def choose_label
+    label = nil
+    until label
+      puts 'Choose a label from the list by entering the corresponding id:'
+      puts '0 - Create a new label'
+      lables_list
+      label_choice = gets.chomp.to_i
+      if label_choice.zero?
+        label = add_label
+      else
+        data = read_file('json/labels.json')
+        lablehash = data.find { |l| l[:id].to_i == label_choice }
+        if lablehash.nil?
+          puts 'Invalid label selection. Please choose a valid option.'
+        else
+          label = Label.new(lablehash[:title], lablehash[:color])
+          label.id = lablehash[:id].to_i
+        end
+      end
+    end
+    label
   end
 
   def book_list
@@ -43,7 +78,7 @@ class App
     return puts 'there are no labels.' if data.empty?
 
     data.each do |label|
-      puts "title: #{label[:title]}, color: #{label[:color]}"
+      puts "id: #{label[:id]},title: #{label[:title]}, color: #{label[:color]}"
     end
   end
 

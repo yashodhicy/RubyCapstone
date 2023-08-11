@@ -52,4 +52,14 @@ class InputClass
 
     Date.new(year, month, day)
   end
+
+  def title
+    print 'add lable title'
+    gets.chomp
+  end
+
+  def color
+    print 'add lable color'
+    gets.chomp
+  end
 end
