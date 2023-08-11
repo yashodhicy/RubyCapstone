@@ -1,0 +1,27 @@
+[
+  {
+    "multiplayer": "false",
+    "last_played_at": "2019-10-12",
+    "publish_date": "2002-12-10"
+  },
+  {
+    "multiplayer": true,
+    "last_played_at": "2019-10-12",
+    "publish_date": "2011-10-12"
+  },
+  {
+    "multiplayer": false,
+    "last_played_at": "2000-02-20",
+    "publish_date": "2000-02-11"
+  },
+  {
+    "multiplayer": false,
+    "last_played_at": "2022",
+    "publish_date": "2022-12-23"
+  },
+  {
+    "multiplayer": false,
+    "last_played_at": "2021-12-23",
+    "publish_date": "2022-12-24"
+  }
+]

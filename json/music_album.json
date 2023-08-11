@@ -1,0 +1,30 @@
+[
+  {
+    "id": 237,
+    "genre": "Mahnoor",
+    "published_date": "2022-12-23",
+    "on_spotify": true,
+    "archived": false
+  },
+  {
+    "id": 625,
+    "genre": "Chand",
+    "published_date": "2023-09-12",
+    "on_spotify": false,
+    "archived": false
+  },
+  {
+    "id": 298,
+    "genre": "Chand",
+    "published_date": "2022-07-25",
+    "on_spotify": true,
+    "archived": false
+  },
+  {
+    "id": 333,
+    "genre": "Jackson",
+    "published_date": "2022-12-23",
+    "on_spotify": true,
+    "archived": false
+  }
+]
